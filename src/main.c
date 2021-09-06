@@ -1,7 +1,21 @@
+#include <defines.h>
+
+
+void init(char *file_path){
+  gb_file = fopen(file_path, )
+}
+
 
 int main(int argc, char *argv[]){
-  // run init
-  
+  //input should be path to ROM 
+
+  if(argc != 2){
+    printf("Usage: \n ./GM-Emulator {Path to ROM}\n");
+    return RET_ERR;
+  }
+
+  // run init, pass the ROM FILE PATH
+  init(char argv[1]);
   //Need to read the ROM into memory, then process each op code
   //Open file, pass pointer to file which has the instr set around.
 
@@ -11,5 +25,5 @@ int main(int argc, char *argv[]){
     //Execute
   }
 
-  return 0;
+  return RET_OK;
 }
