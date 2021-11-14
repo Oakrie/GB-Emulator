@@ -1,6 +1,7 @@
 /*=======================       INCLUDES        =======================*/
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 /*=====================================================================*/
 /*=======================        MACROS         =======================*/
 #define DEBUG 0
@@ -16,7 +17,7 @@ typedef enum OPTYPE{CNTRL, JUMPS, LSM, ARITH, SHIFT} OPTYPE_t;
 enum CNTRL_instr{NOP, STOP, HALT, PREFIX_CB, DI, EI};
 
 //Jump instructions
-enum JUMPS_instr{JR, RET, JP, CALL, RST, JP, RST, RETI};
+enum JUMPS_instr{JR, RET, CALL, RST, JP, RETI};
 
 //Load/Store/Move instructions
 enum LSM_instr {LD, LDH, POP, PUSH};
@@ -43,7 +44,7 @@ typedef struct operation
 
 /*=====================================================================*/
 /*=======================        GLOBALS        =======================*/
-uint32_t *PC;
-uint8_t *PREFIX_CB_f
+uint32_t *PC_r;
+uint8_t *PREFIX_CB_f;
 FILE *gb_file;
 /*=====================================================================*/

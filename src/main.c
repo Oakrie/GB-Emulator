@@ -1,12 +1,12 @@
-#include <defines.h>
+#include "./CPU/decoder.h"
 
 
-void init(char *file_path){
-  gb_file = fopen(file_path, )
-}
+// void init(char *file_path){
+//   gb_file = fopen(file_path, )
+// }
 
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
   //input should be path to ROM 
 
   if(argc != 2){
@@ -15,7 +15,7 @@ int main(int argc, char *argv[]){
   }
 
   // run init, pass the ROM FILE PATH
-  init(char argv[1]);
+  // init(char rgv[1]);
   //Need to read the ROM into memory, then process each op code
   //Open file, pass pointer to file which has the instr set around.
 
