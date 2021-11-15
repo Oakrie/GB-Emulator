@@ -13,7 +13,18 @@ int main(int argc, char *argv[]) {
     printf("Usage: \n ./GM-Emulator {Path to ROM}\n");
     return RET_ERR;
   }
+  FILE *romfp = fopen(argv[1], "r");
 
+  // Get the ROM file size
+  fseek(romfp, 0, SEEK_END);
+  size_t fsize = ftell(romfp);
+  fseek(romfp, 0, SEEK_SET);
+
+  uint8_t *buf = malloc(sizeof(char) * fsize + 1);
+  fread(buf, fsize, 1, romfp);
+
+
+  
   // run init, pass the ROM FILE PATH
   // init(char rgv[1]);
   //Need to read the ROM into memory, then process each op code
