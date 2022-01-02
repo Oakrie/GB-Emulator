@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y zsh
 
 # Add new user to system
@@ -18,4 +18,22 @@ RUN apt-get install -y git \
                         python3-pip\
 			build-essential\
 			manpages-dev\
-			vim
+			vim \
+                        flex \
+                        bison \
+                        libc6-dev \
+                        make \
+                        texlive \
+                        graphviz \ 
+                        cmake
+RUN cd $HOME && \
+    git clone https://github.com/doxygen/doxygen.git && \
+    cd doxygen && \
+    mkdir build && \
+    cd build && \
+    cmake -G "Unix Makefiles" .. && \
+    make && \
+    make install
+
+
+
